@@ -121,6 +121,16 @@ namespace LoRa_Utils {
             state = radio.setOutputPower(Config.loramodule.power); // max value 20dB for 1W modules as they have Low Noise Amp
             radio.setCurrentLimit(140); // to be validated (100 , 120, 140)?
         #endif
+        #ifdef ESP32_DIY_1W_LoRa
+            // 1. Force the switch pins to be handled by the SX1268 driver
+            // Some modules need the DIO2 pin to trigger the switch instead!
+      
+            radio.setRfSwitchPins(14, 13); 
+            radio.setPaConfig(0x04, RADIOLIB_SX126X_PA_CONFIG_SX1268);
+            radio.setCurrentLimit(140.0);
+            radio.setOutputPower(22);
+            Utils::println("The Hammer: RF Switches and PA Config set.");
+        #endif
         #if defined(HAS_SX1278) || defined(HAS_SX1276)
             state = radio.setOutputPower(Config.loramodule.power); // max value 20dB for 400M30S as it has Low Noise Amp
             radio.setCurrentLimit(100); // to be validated (80 , 100)?

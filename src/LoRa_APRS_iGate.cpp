@@ -99,6 +99,20 @@ String firstLine, secondLine, thirdLine, fourthLine, fifthLine, sixthLine, seven
 
 
 void setup() {
+    // 1. Force Ethernet CS HIGH (Disable)
+  pinMode(15, OUTPUT); 
+  digitalWrite(15, HIGH); 
+
+  // 2. Force LoRa CS HIGH (Disable)
+  pinMode(18, OUTPUT); 
+  digitalWrite(18, HIGH);
+
+  // 3. Hardware Reset the Ethernet (If connected to Pin 12)
+  pinMode(12, OUTPUT);
+  digitalWrite(12, LOW);
+  delay(50);
+  digitalWrite(12, HIGH);
+  delay(100);
     Serial.begin(115200);
     Config.setup();
     networkManager = new NetworkManager();
