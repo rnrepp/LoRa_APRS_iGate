@@ -11,6 +11,10 @@ This variant includes a custom `ESP32_DIY_2W_LoRa` environment that properly def
 2. Select the `env:ESP32_DIY_2W_LoRa` environment.
 3. Build and upload to your board.
 
+### References
+https://www.brokencircuitranch.com/shop/p/the-hammer-ard4f
+https://github.com/BrokenCircuitRanch/Hammer-1W_LORA-board
+
 # CA2RXU LoRa APRS iGate/Digipeater
 
 This firmware is for using ESP32 based boards with LoRa Modules and GPS to live in the APRS world.
