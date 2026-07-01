@@ -1,3 +1,16 @@
+# LoRa APRS iGate - Hammer 400MHz (2-Watt) Variant
+
+This is a custom fork of the LoRa_APRS_iGate firmware specifically configured for **The Hammer ARD4F (400MHz / E22-400M33S)** board by Broken Circuit Ranch. 
+
+Out of the box, the standard firmware does not include the correct pinouts to function and intialize. Works in progress to utilize on-board ethernet connection 
+
+This variant includes a custom `ESP32_DIY_2W_LoRa` environment that properly defines `RADIO_RXEN` (14) and `RADIO_TXEN` (13) to unlock the full 2-watt transmit capability on the 70cm band.
+
+### How to Compile
+1. Open this project in VSCode / PlatformIO.
+2. Select the `env:ESP32_DIY_2W_LoRa` environment.
+3. Build and upload to your board.
+
 # CA2RXU LoRa APRS iGate/Digipeater
 
 This firmware is for using ESP32 based boards with LoRa Modules and GPS to live in the APRS world.
